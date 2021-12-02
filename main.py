@@ -1,14 +1,15 @@
+from operator import pos
 import sympy as sp  # tools for matrix, calculus operation
 
 ################ edit aera ########################
 # TODO: mattrix format of input obj func
 """set the objective function there"""
 # 1. declare variables
-x_1, x_2 = sp.symbols('x_1 x_2') 
+x_1, x_2, x_3 = sp.symbols('x_1 x_2 x_3') 
 # 2. initialize obj func
-f = -(x_1)**2 + 4*x_1 +2*x_1*x_2 -2*x_2**2
+f = (x_1 -1)**2 + (x_2 -2)**2 +(x_3 -3)**2
 # 3. declare init position
-starting_position = [(x_1,0.), (x_2,0.)]  # standard format of position
+starting_position = [(x_1,0.5), (x_2,0.5), (x_3, 0.5)]  # standard format of position
 #####################################################
 alpha = sp.symbols('alpha')  # declare step lenghth var
 
@@ -25,7 +26,8 @@ def _update_position(position_vector, current_position, step_length = alpha):
     next_position = current_position - step_length*position_vector
     # convert from matrix into standard format
     value = [i for i in next_position]
-    return [(starting_position[i][0], value[i]) for i in range(len(value))]
+    result = [(starting_position[i][0], (value[i])) for i in range(len(value))]
+    return result
 
 def _grad(function, position):
     gradient = []
@@ -46,6 +48,25 @@ def _HS_form(current_gradint, previous_gradient):
     numerator = current_gradint.T*(current_gradint-previous_gradient)
     denominator = previous_gradient.T*previous_gradient
     return numerator*denominator.inv()[0]
+
+
+def _record(position, direction_vector, beta, step_length, initial = False):
+    # record intermediate steps
+    position = [(i[0], "%.2f"%i[1]) for i in position]
+    position = [str(i) for i in position]
+    if initial:
+        current_position = "initial position: {} ".format(" ,".join(position))
+        beta = 0
+    else:
+        current_position = "current position: {} ".format(" ,".join(position))
+    direction = str(["%.2f"% i for i in list(direction_vector)]) + "^T"
+    with open('log.txt', 'a+') as f:
+        f.write("{}\n".format(current_position))
+        f.write("next update direction vector: {}\n".format(direction))
+        f.write("where direction updating parameter beta: {}\n".format(beta))
+        f.write("step length parameter alpha:{}\n\n".format(step_length))
+
+
 
 def golden_search(func):
     # find the optimal step length
@@ -74,7 +95,10 @@ def conjugate_gradient():
     next_positon_func = f.subs(next_position_var)
     step_length = golden_search(next_positon_func)
     next_position = _update_position(position_vector, current_position, step_length)
+
+    _record(current_position, position_vector, 0, step_length, True)
     current_position = next_position
+
 
     stop = False
     while not stop:
@@ -85,10 +109,14 @@ def conjugate_gradient():
         next_positon_func = f.subs(next_position_var)
         step_length = golden_search(next_positon_func)  # searching alpha
         next_position = _update_position(position_vector, current_position, step_length)
+
+        _record(current_position, new_position_vector, beta, step_length)
+
         # update parameters
         current_position = next_position
         gradient = new_gradient
         position_vector = new_position_vector
+
         print(current_position)
         print(beta)       
         print("\n")

@@ -1,0 +1,10 @@
+initial position: (x_1, '0.50') ,(x_2, '0.50') ,(x_3, '0.50') 
+next update direction vector: ['1.00', '3.00', '5.00']^T
+where direction updating parameter beta: 0
+step length parameter alpha:-0.5
+
+current position: (x_1, '1.00') ,(x_2, '2.00') ,(x_3, '3.00') 
+next update direction vector: ['0.00', '0.00', '0.00']^T
+where direction updating parameter beta: Matrix([[0]])
+step length parameter alpha:0.0
+
