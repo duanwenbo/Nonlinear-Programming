@@ -4,11 +4,11 @@ import sympy as sp  # tools for matrix, calculus operation
 # TODO: mattrix format of input obj func
 """set the objective function there"""
 # 1. declare variables
-x_1, x_2, x_3 = sp.symbols('x_1 x_2 x_3') 
+x_1, x_2 = sp.symbols('x_1 x_2') 
 # 2. initialize obj func
-f = (x_1 - 1)**2 + (x_2 -2)**2 + (x_3 - 3)**2
+f = -(x_1)**2 + 4*x_1 +2*x_1*x_2 -2*x_2**2
 # 3. declare init position
-starting_position = [(x_1,0.5), (x_2,0.5), (x_3,0.5)]  # standard format of position
+starting_position = [(x_1,0.), (x_2,0.)]  # standard format of position
 #####################################################
 alpha = sp.symbols('alpha')  # declare step lenghth var
 
@@ -69,7 +69,7 @@ def conjugate_gradient():
     # first round cycle
     current_position = starting_position
     gradient= _grad(f, current_position)
-    position_vector = - gradient  # when j=1
+    position_vector =  - gradient  # when j=1
     next_position_var = _update_position(position_vector, current_position)
     next_positon_func = f.subs(next_position_var)
     step_length = golden_search(next_positon_func)
@@ -89,6 +89,9 @@ def conjugate_gradient():
         current_position = next_position
         gradient = new_gradient
         position_vector = new_position_vector
+        print(current_position)
+        print(beta)       
+        print("\n")
         if _modulus(position_vector) < EPSILON:
             stop = True
             print(current_position)
@@ -98,17 +101,17 @@ def steepest_gradient():
     stop = False
     while not stop:
         position_vector = _grad(f, current_position)
-        next_position_var = _update_position (-position_vector, current_position)
-        next_position_func = f.subs(next_position_var)
-        derivative = sp.diff(next_position_func, alpha)
-        step_len = sp.solve(derivative, alpha)[0]
-        next_position = _update_position(-position_vector, current_position, step_len)
-        print(current_position)
-        current_position = next_position
         if _modulus(position_vector) <= EPSILON:
             stop = True
             print(current_position)
-
+        else:
+            next_position_var = _update_position (-position_vector, current_position)
+            next_position_func = f.subs(next_position_var)
+            derivative = sp.diff(next_position_func, alpha)
+            step_len = sp.solve(derivative, alpha)[0]
+            next_position = _update_position(-position_vector, current_position, step_len)
+            current_position = next_position
+       
 
 if __name__ == "__main__":
-   steepest_gradient()
+   conjugate_gradient()
