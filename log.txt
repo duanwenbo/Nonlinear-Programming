@@ -1,10 +1,125 @@
-initial position: (x_1, '0.50') ,(x_2, '0.50') ,(x_3, '0.50') 
-next update direction vector: ['1.00', '3.00', '5.00']^T
+initial position: (x_1, '0.00') ,(x_2, '0.00') 
+next update direction vector: ['4.00', '0.00']^T
 where direction updating parameter beta: 0
-step length parameter alpha:-0.5
+step length parameter alpha:0.5009551445565977
 
-current position: (x_1, '1.00') ,(x_2, '2.00') ,(x_3, '3.00') 
-next update direction vector: ['0.00', '0.00', '0.00']^T
-where direction updating parameter beta: Matrix([[0]])
-step length parameter alpha:0.0
+current position: (x_1, '2.00') ,(x_2, '0.00') 
+next update direction vector: ['-4.03', '4.01']^T
+where direction updating parameter beta: Matrix([[1.00573816574858]])
+step length parameter alpha:0.09995337167078126
+
+current position: (x_1, '1.60') ,(x_2, '0.40') 
+next update direction vector: ['1.28', '1.92']^T
+where direction updating parameter beta: Matrix([[-0.0798227826294769]])
+step length parameter alpha:0.6249292436425984
+
+current position: (x_1, '2.40') ,(x_2, '1.60') 
+next update direction vector: ['0.64', '-4.25']^T
+where direction updating parameter beta: Matrix([[1.37898522935274]])
+step length parameter alpha:0.09995337167078126
+
+current position: (x_1, '2.46') ,(x_2, '1.18') 
+next update direction vector: ['1.50', '-0.28']^T
+where direction updating parameter beta: Matrix([[-0.117757877063927]])
+step length parameter alpha:0.3216303224842556
+
+current position: (x_1, '2.95') ,(x_2, '1.09') 
+next update direction vector: ['-0.95', '1.77']^T
+where direction updating parameter beta: Matrix([[0.824477321976082]])
+step length parameter alpha:0.11611962889872249
+
+current position: (x_1, '2.83') ,(x_2, '1.29') 
+next update direction vector: ['0.94', '0.46']^T
+where direction updating parameter beta: Matrix([[0.0233187089518564]])
+step length parameter alpha:1.236594269170991
+
+current position: (x_1, '3.99') ,(x_2, '1.86') 
+next update direction vector: ['-0.57', '0.40']^T
+where direction updating parameter beta: Matrix([[0.319657401097307]])
+step length parameter alpha:0.168448873801888
+
+current position: (x_1, '3.90') ,(x_2, '1.93') 
+next update direction vector: ['0.03', '0.11']^T
+where direction updating parameter beta: Matrix([[-0.0559984764350736]])
+step length parameter alpha:0.2923830777535067
+
+current position: (x_1, '3.91') ,(x_2, '1.96') 
+next update direction vector: ['0.09', '-0.11']^T
+where direction updating parameter beta: Matrix([[0.737557776060449]])
+step length parameter alpha:0.12421508411112397
+
+current position: (x_1, '3.92') ,(x_2, '1.95') 
+next update direction vector: ['0.05', '0.06']^T
+where direction updating parameter beta: Matrix([[0.0672939467924781]])
+step length parameter alpha:0.9282997846978087
+
+current position: (x_1, '3.97') ,(x_2, '2.00') 
+next update direction vector: ['0.00', '-0.13']^T
+where direction updating parameter beta: Matrix([[1.20831566872671]])
+step length parameter alpha:0.11802755442217937
+
+current position: (x_1, '3.97') ,(x_2, '1.98') 
+next update direction vector: ['0.03', '-0.02']^T
+where direction updating parameter beta: Matrix([[-0.132261698639401]])
+step length parameter alpha:0.20081744969557513
+
+current position: (x_1, '3.97') ,(x_2, '1.98') 
+next update direction vector: ['-0.00', '0.03']^T
+where direction updating parameter beta: Matrix([[0.407733202170930]])
+step length parameter alpha:0.1946435476573278
+
+current position: (x_1, '3.97') ,(x_2, '1.99') 
+next update direction vector: ['0.03', '-0.01']^T
+where direction updating parameter beta: Matrix([[0.378946386456536]])
+step length parameter alpha:0.2108075824435481
+
+current position: (x_1, '3.98') ,(x_2, '1.98') 
+next update direction vector: ['-0.00', '0.03']^T
+where direction updating parameter beta: Matrix([[0.443138824095716]])
+step length parameter alpha:0.18152886698073983
+
+current position: (x_1, '3.98') ,(x_2, '1.99') 
+next update direction vector: ['0.02', '-0.01']^T
+where direction updating parameter beta: Matrix([[0.322319592173122]])
+step length parameter alpha:0.24505261312863266
+
+current position: (x_1, '3.98') ,(x_2, '1.99') 
+next update direction vector: ['-0.01', '0.02']^T
+where direction updating parameter beta: Matrix([[0.569097852977068]])
+step length parameter alpha:0.15037568493219652
+
+current position: (x_1, '3.98') ,(x_2, '1.99') 
+next update direction vector: ['0.02', '-0.00']^T
+where direction updating parameter beta: Matrix([[0.191185163172650]])
+step length parameter alpha:0.4082150097955314
+
+current position: (x_1, '3.99') ,(x_2, '1.99') 
+next update direction vector: ['-0.02', '0.02']^T
+where direction updating parameter beta: Matrix([[1.05905264200996]])
+step length parameter alpha:0.10304062979935226
+
+current position: (x_1, '3.99') ,(x_2, '1.99') 
+next update direction vector: ['0.01', '0.01']^T
+where direction updating parameter beta: Matrix([[-0.0526499636675703]])
+step length parameter alpha:0.9282997846978087
+
+current position: (x_1, '3.99') ,(x_2, '2.00') 
+next update direction vector: ['0.00', '-0.02']^T
+where direction updating parameter beta: Matrix([[1.21269014694797]])
+step length parameter alpha:0.11802755442217937
+
+current position: (x_1, '3.99') ,(x_2, '2.00') 
+next update direction vector: ['0.01', '-0.00']^T
+where direction updating parameter beta: Matrix([[-0.131814129651509]])
+step length parameter alpha:0.20081744969557513
+
+current position: (x_1, '4.00') ,(x_2, '2.00') 
+next update direction vector: ['-0.00', '0.01']^T
+where direction updating parameter beta: Matrix([[0.405607048378637]])
+step length parameter alpha:0.1977301915670041
+
+current position: (x_1, '4.00') ,(x_2, '2.00') 
+next update direction vector: ['0.00', '-0.00']^T
+where direction updating parameter beta: Matrix([[0.394816087301373]])
+step length parameter alpha:0.202725375219032
 
