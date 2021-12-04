@@ -1,4 +1,5 @@
 import sympy as sp  # tools for matrix, calculus operation
+from sympy.parsing.sympy_parser import parse_expr
 import os
 
 ################ edit aera ########################
@@ -14,7 +15,6 @@ starting_position = [(x_1,0.), (x_2,0.)]  # standard format of position
 
 #####################################################
 alpha = sp.symbols('alpha')  # declare step lenghth var
-gs_test = -16*alpha**2 + 16*alpha  # unimodal   
 
 EPSILON = 0.005  # tolerance
 GOLDEN_RATIO = 0.618
@@ -22,7 +22,28 @@ GOLDEN_RATIO = 0.618
 
 class Objective_function:
     def __init__(self) -> None:
-        pass
+        self.obj_expression = "-x_1**2 + 4*x_1 + 2*x_1*x_2 - 2*x_2**2"
+        self.start_position_expression = "x_1=0, x_2=0"
+        self.obj = ""
+        self.start_position = ""
+        self.GOLDEN_RATIO = 0.618
+        self.EPSILON = 0.005
+        self.alpha = sp.symbols('alpha')
+        self._parsing_input()
+    
+    def _parsing_input(self):
+        self.obj = parse_expr(self.obj_expression)
+         # format text input
+        limits = self.start_position_expression.replace(" ","").split(",")
+        limits = [tuple(i.split("=")) for i in limits]
+        # extract variables from the expression
+        symbols = list(self.obj.free_symbols)
+        var_list = []
+        for i, constrain in enumerate(limits):
+            for element in symbols:
+                if str(element) == constrain[0]:
+                    var_list.append((element, limits[i][1]))
+        self.start_position = var_list
 
 def _update_position(position_vector, current_position, step_length = alpha):
     assert len(starting_position) == sp.shape(position_vector)[1], "check beta value!"
@@ -144,9 +165,5 @@ def steepest_gradient():
        
 
 if __name__ == "__main__":
-    detect_previous_doc()
-    # print("####################SG#############")
-    # steepest_gradient()  
-    print("####################CONJU#############")
-    conjugate_gradient()
- 
+    a = Objective_function()
+    print("aaa")
